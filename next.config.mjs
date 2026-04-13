@@ -1,12 +1,18 @@
 /** @type {import('next').NextConfig} */
+const basePath = "/transpesantez"
+
 const nextConfig = {
   output: "export",
-  basePath: "/transpesantez",
+  basePath,
+  assetPrefix: basePath,
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
+  },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 }
 

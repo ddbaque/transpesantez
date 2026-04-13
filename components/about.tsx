@@ -55,7 +55,7 @@ export function About() {
         {/* Image */}
         <div className="mt-10 relative aspect-[16/9] sm:mt-16 sm:aspect-[21/9] overflow-hidden">
           <Image
-            src="/images/warehouse.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/warehouse.jpg`}
             alt="Interior de almacen frigorifico de Transpesantez"
             fill
             className="object-cover"

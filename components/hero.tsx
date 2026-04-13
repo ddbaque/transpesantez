@@ -5,7 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-const heroImages = ["/images/camion-1.jpeg", "/images/camion-2.jpeg"]
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+const heroImages = [`${basePath}/images/camion-1.jpeg`, `${basePath}/images/camion-2.jpeg`]
 
 export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
