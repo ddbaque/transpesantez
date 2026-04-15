@@ -3,8 +3,17 @@ import { Inter, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const _dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: 'Transpesantez | Transporte de Alimentos de Confianza',
@@ -30,7 +39,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#1c1a17',
+  themeColor: '#0a1628',
 }
 
 export default function RootLayout({
@@ -40,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${_inter.variable} ${_dmSans.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${dmSans.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

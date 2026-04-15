@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
 import {
   Snowflake,
   Package,
@@ -14,81 +17,119 @@ const services = [
     title: "Transporte Refrigerado",
     description:
       "Vehiculos con control de temperatura de -25C a +25C para productos que requieren cadena de frio.",
+    tag: "Principal",
   },
   {
     icon: Package,
     title: "Transporte en Seco",
     description:
       "Distribucion de productos alimentarios que no requieren temperatura controlada con la misma fiabilidad.",
+    tag: null,
   },
   {
     icon: PackageCheck,
     title: "Distribucion Capilar",
     description:
       "Entregas punto a punto en supermercados, tiendas y centros de distribucion.",
+    tag: null,
   },
   {
     icon: Route,
     title: "Rutas Optimizadas",
     description:
       "Planificacion inteligente de rutas para maximizar la eficiencia y reducir tiempos.",
+    tag: null,
   },
   {
     icon: BarChart3,
     title: "Trazabilidad Completa",
     description:
       "Seguimiento GPS en tiempo real y registro de temperatura de cada envio.",
+    tag: "Tecnologia",
   },
   {
     icon: Warehouse,
     title: "Almacenaje Temporal",
     description:
       "Instalaciones de almacenamiento refrigerado y en seco de corta y media duracion.",
+    tag: null,
   },
   {
     icon: Truck,
     title: "Flota Especializada",
     description:
       "Vehiculos de distintas capacidades adaptados a cada necesidad logistica.",
+    tag: null,
   },
 ]
 
 export function Services() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true) },
+      { threshold: 0.1 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="servicios" className="py-16 sm:py-28 lg:py-40 bg-foreground">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <section id="servicios" className="relative py-24 sm:py-32 lg:py-44 bg-[#0a1628] overflow-hidden">
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+        backgroundSize: "64px 64px"
+      }} />
+
+      <div ref={ref} className="relative mx-auto max-w-7xl px-6 sm:px-8">
         {/* Header */}
-        <div className="max-w-2xl">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-background/40 mb-4 sm:text-xs sm:mb-6">
-            Nuestros servicios
-          </p>
-          <h2 className="text-balance text-2xl font-light leading-[1.15] tracking-tight text-background sm:text-3xl md:text-5xl">
+        <div className={`max-w-2xl transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
+            <span className="h-1 w-1 rounded-full bg-blue-400" />
+            <span className="text-[11px] uppercase tracking-[0.2em] text-white/40">Nuestros servicios</span>
+          </div>
+          <h2 className="text-3xl font-light leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
             Soluciones completas en
             <br />
             <span className="font-semibold">logistica alimentaria</span>
           </h2>
         </div>
 
-        {/* Services list */}
-        <div className="mt-12 grid gap-px bg-background/10 sm:mt-20">
+        {/* Services grid - 2 columns on desktop */}
+        <div className="mt-14 sm:mt-20 grid gap-4 md:grid-cols-2">
           {services.map((service, i) => (
             <div
               key={service.title}
-              className="group flex items-start gap-4 bg-foreground py-6 sm:gap-6 sm:py-8 lg:py-10 transition-all hover:bg-background/5"
+              className={`group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8 transition-all duration-500 hover:bg-white/[0.05] hover:border-white/[0.1] ${
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              } ${i === services.length - 1 ? "md:col-span-2 md:max-w-[calc(50%-0.5rem)]" : ""}`}
+              style={{ transitionDelay: inView ? `${200 + i * 80}ms` : "0ms" }}
             >
-              <span className="text-[10px] text-background/25 pt-0.5 w-5 shrink-0 sm:text-xs sm:w-6 sm:pt-1">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="flex-1 flex flex-col gap-2 lg:flex-row lg:items-start lg:gap-16">
-                <div className="flex items-center gap-3 lg:w-72 shrink-0 sm:gap-4">
-                  <service.icon className="h-4 w-4 text-background/40 transition-colors group-hover:text-background sm:h-5 sm:w-5" />
-                  <h3 className="text-sm font-medium text-background sm:text-base">
-                    {service.title}
-                  </h3>
+              <div className="flex items-start gap-5">
+                <div className="h-10 w-10 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-blue-500/10 group-hover:border-blue-400/20">
+                  <service.icon className="h-5 w-5 text-white/30 transition-colors group-hover:text-blue-400" />
                 </div>
-                <p className="text-xs leading-relaxed text-background/45 sm:text-sm lg:max-w-md">
-                  {service.description}
-                </p>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-[15px] font-medium text-white sm:text-base tracking-[-0.01em]">
+                      {service.title}
+                    </h3>
+                    {service.tag && (
+                      <span className="text-[9px] uppercase tracking-[0.1em] text-blue-400/70 bg-blue-400/10 px-2 py-0.5 rounded-full">
+                        {service.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-white/35 group-hover:text-white/50 transition-colors">
+                    {service.description}
+                  </p>
+                </div>
+                <span className="hidden sm:block text-[11px] font-mono text-white/10 pt-1 shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
             </div>
           ))}

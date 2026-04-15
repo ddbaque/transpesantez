@@ -1,3 +1,7 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
 const clients = [
   "Mercadona",
   "Caprabo",
@@ -16,24 +20,71 @@ const stats = [
   { value: "100%", label: "Satisfaccion" },
 ]
 
-export function Clients() {
+function AnimatedStat({ value, label, delay, inView }: { value: string; label: string; delay: number; inView: boolean }) {
+  const [count, setCount] = useState(0)
+  const numMatch = value.match(/\d+/)
+  const target = numMatch ? parseInt(numMatch[0]) : 0
+  const prefix = value.slice(0, value.indexOf(String(target)))
+  const suffix = value.slice(value.indexOf(String(target)) + String(target).length)
+
+  useEffect(() => {
+    if (!inView) return
+    const timeout = setTimeout(() => {
+      let current = 0
+      const step = Math.max(1, Math.floor(target / 30))
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target)
+        setCount(current)
+        if (current >= target) clearInterval(timer)
+      }, 30)
+      return () => clearInterval(timer)
+    }, delay)
+    return () => clearTimeout(timeout)
+  }, [inView, target, delay])
+
   return (
-    <section id="clientes" className="py-16 sm:py-28 lg:py-40">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <div>
+      <p className="text-3xl font-light tracking-[-0.03em] text-foreground sm:text-4xl lg:text-5xl tabular-nums">
+        {prefix}{inView ? count : 0}{suffix}
+      </p>
+      <p className="mt-2 text-[11px] uppercase tracking-[0.15em] text-muted-foreground sm:text-xs">
+        {label}
+      </p>
+    </div>
+  )
+}
+
+export function Clients() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true) },
+      { threshold: 0.15 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="clientes" className="py-24 sm:py-32 lg:py-44">
+      <div ref={ref} className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Header */}
-        <div className="grid gap-4 lg:grid-cols-2 lg:gap-16">
+        <div className={`grid gap-6 lg:grid-cols-2 lg:gap-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4 sm:text-xs sm:mb-6">
-              Nuestros clientes
-            </p>
-            <h2 className="text-balance text-2xl font-light leading-[1.15] tracking-tight text-foreground sm:text-3xl md:text-5xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary text-muted-foreground mb-6">
+              <span className="h-1 w-1 rounded-full bg-accent" />
+              <span className="text-[11px] uppercase tracking-[0.2em]">Nuestros clientes</span>
+            </div>
+            <h2 className="text-3xl font-light leading-[1.1] tracking-[-0.03em] text-foreground sm:text-4xl md:text-5xl lg:text-[56px]">
               Marcas que confian
               <br />
               <span className="font-semibold">en nosotros</span>
             </h2>
           </div>
-          <div className="flex items-end mt-2 lg:mt-0">
-            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base lg:max-w-md">
+          <div className="flex items-end">
+            <p className="text-[15px] leading-relaxed text-muted-foreground sm:text-base lg:max-w-md lg:text-lg">
               Trabajamos con los principales supermercados y distribuidores
               alimentarios, garantizando siempre la maxima calidad en cada
               entrega.
@@ -41,29 +92,45 @@ export function Clients() {
           </div>
         </div>
 
-        {/* Client names - typographic grid */}
-        <div className="mt-10 grid grid-cols-2 gap-px bg-border sm:mt-20 sm:grid-cols-4">
-          {clients.map((client) => (
-            <div
-              key={client}
-              className="flex items-center justify-center bg-background py-8 sm:py-12 lg:py-16 transition-colors hover:bg-secondary"
-            >
-              <span className="text-sm font-medium tracking-tight text-foreground sm:text-lg lg:text-xl">
-                {client}
-              </span>
+        {/* Marquee of client names */}
+        <div className={`mt-14 sm:mt-20 relative overflow-hidden transition-all duration-700 delay-200 ${inView ? "opacity-100" : "opacity-0"}`}>
+          <div className="flex items-center py-10 border-y border-border">
+            <div className="animate-marquee flex items-center gap-16 shrink-0 pr-16">
+              {[...clients, ...clients].map((client, i) => (
+                <span
+                  key={`${client}-${i}`}
+                  className="text-lg font-medium tracking-[-0.01em] text-foreground/70 whitespace-nowrap hover:text-foreground transition-colors sm:text-xl lg:text-2xl"
+                >
+                  {client}
+                </span>
+              ))}
             </div>
-          ))}
+            <div className="animate-marquee flex items-center gap-16 shrink-0 pr-16" aria-hidden>
+              {[...clients, ...clients].map((client, i) => (
+                <span
+                  key={`dup-${client}-${i}`}
+                  className="text-lg font-medium tracking-[-0.01em] text-foreground/70 whitespace-nowrap hover:text-foreground transition-colors sm:text-xl lg:text-2xl"
+                >
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* Fade edges */}
+          <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         </div>
 
         {/* Stats */}
-        <div className="mt-10 grid grid-cols-2 gap-6 sm:mt-20 sm:gap-8 lg:grid-cols-4 lg:gap-16">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-2xl font-light text-foreground sm:text-3xl lg:text-4xl">{stat.value}</p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-muted-foreground sm:mt-2 sm:text-xs sm:tracking-[0.15em]">
-                {stat.label}
-              </p>
-            </div>
+        <div className="mt-14 grid grid-cols-2 gap-8 sm:mt-20 lg:grid-cols-4 lg:gap-12">
+          {stats.map((stat, i) => (
+            <AnimatedStat
+              key={stat.label}
+              value={stat.value}
+              label={stat.label}
+              delay={i * 150}
+              inView={inView}
+            />
           ))}
         </div>
       </div>
