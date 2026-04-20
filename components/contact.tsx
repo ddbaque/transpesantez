@@ -16,26 +16,32 @@ import {
 const contactInfo = [
   {
     icon: Phone,
-    label: "Telefono",
-    value: "+593 99 123 4567",
-    href: "tel:+593991234567",
+    label: "Teléfono fijo",
+    value: "938 437 200",
+    href: "tel:+34938437200",
+  },
+  {
+    icon: Phone,
+    label: "Teléfono móvil",
+    value: "647 94 27 60",
+    href: "tel:+34647942760",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "info@transpesantez.com",
-    href: "mailto:info@transpesantez.com",
+    value: "trafico@ttranspesantez.com",
+    href: "mailto:trafico@ttranspesantez.com",
   },
   {
     icon: MapPin,
-    label: "Direccion",
-    value: "Carrer Industria, 08185 Llica de Vall, Barcelona",
+    label: "Dirección",
+    value: "Llica de Vall, Barcelona",
     href: null,
   },
   {
     icon: Clock,
     label: "Horario",
-    value: "Lun - Vie: 7:00 - 21:00",
+    value: "Lun-Jue: 9-13h / 15-18h · Vie: 8-13h / 15-17h",
     href: null,
   },
 ]
@@ -127,30 +133,6 @@ export function Contact() {
                 </div>
               ))}
             </div>
-
-            {/* Social */}
-            <div className="mt-10 pt-8 border-t border-border">
-              <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-4">
-                Redes sociales
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { name: "Facebook", href: "#" },
-                  { name: "Instagram", href: "#" },
-                  { name: "LinkedIn", href: "#" },
-                  { name: "X", href: "#" },
-                ].map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="px-3.5 py-1.5 rounded-lg bg-secondary text-xs font-medium text-muted-foreground transition-all hover:bg-accent/10 hover:text-accent"
-                    aria-label={`Seguir a Transpesantez en ${social.name}`}
-                  >
-                    {social.name}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Form */}
@@ -217,13 +199,13 @@ export function Contact() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground font-medium">
-                        Telefono
+                        Teléfono
                       </Label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="+593 000 000 000"
+                        placeholder="+34 000 000 000"
                         className="h-11 rounded-lg border-border bg-secondary/50 px-4 text-sm placeholder:text-muted-foreground/50 focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:border-accent transition-all"
                       />
                     </div>
@@ -235,7 +217,7 @@ export function Contact() {
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Cuentanos que necesitas..."
+                      placeholder="Cuéntanos qué necesitas..."
                       rows={4}
                       required
                       className="rounded-lg border-border bg-secondary/50 px-4 py-3 text-sm placeholder:text-muted-foreground/50 focus-visible:ring-2 focus-visible:ring-accent/20 focus-visible:border-accent resize-none transition-all"
@@ -243,7 +225,7 @@ export function Contact() {
                   </div>
                   {error && (
                     <p className="text-sm text-destructive bg-destructive/5 px-4 py-2.5 rounded-lg">
-                      Error al enviar. Intentalo de nuevo.
+                      Error al enviar. Inténtalo de nuevo.
                     </p>
                   )}
                   <button

@@ -94,7 +94,7 @@ export function Navbar() {
               scrolled ? "hover:bg-secondary" : "hover:bg-white/10"
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {mobileOpen ? (
               <X className={`h-5 w-5 ${scrolled ? "text-foreground" : "text-white"}`} />
@@ -127,7 +127,7 @@ export function Navbar() {
           <button
             className="p-2 -mr-2 rounded-lg hover:bg-secondary"
             onClick={() => setMobileOpen(false)}
-            aria-label="Cerrar menu"
+            aria-label="Cerrar menú"
           >
             <X className="h-5 w-5 text-foreground" />
           </button>

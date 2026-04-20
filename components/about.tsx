@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { Target, Leaf, Users, Cpu } from "lucide-react"
+import { Target, Clock, Zap, Handshake } from "lucide-react"
 
 const values = [
   {
@@ -10,28 +10,28 @@ const values = [
     number: "01",
     title: "Compromiso",
     description:
-      "Cada entrega se realiza con la maxima precision y puntualidad para cumplir con las exigencias de nuestros clientes.",
+      "Cada entrega se realiza con la máxima precisión y puntualidad para cumplir con las exigencias de nuestros clientes.",
   },
   {
-    icon: Leaf,
+    icon: Clock,
     number: "02",
-    title: "Sostenibilidad",
+    title: "Disponibilidad Total",
     description:
-      "Flota de vehiculos con bajas emisiones y rutas optimizadas para reducir nuestra huella de carbono.",
+      "Damos respuesta cuando más se necesita, con la flexibilidad y agilidad que exige el día a día logístico.",
   },
   {
-    icon: Users,
+    icon: Zap,
     number: "03",
-    title: "Equipo Profesional",
+    title: "Capacidad Resolutiva",
     description:
-      "Conductores formados en manipulacion de alimentos y protocolos de seguridad alimentaria.",
+      "Rapidez y eficiencia para resolver cualquier imprevisto, adaptándonos a cada ruta y cada necesidad.",
   },
   {
-    icon: Cpu,
+    icon: Handshake,
     number: "04",
-    title: "Innovacion",
+    title: "Trato Cercano",
     description:
-      "Tecnologia GPS y sensores de temperatura en tiempo real para un control absoluto de cada envio.",
+      "Relación personal con cada cliente. Entendemos sus necesidades y construimos confianza a largo plazo.",
   },
 ]
 
@@ -63,16 +63,17 @@ export function About() {
               <span className="text-[11px] uppercase tracking-[0.2em]">Sobre nosotros</span>
             </div>
             <h2 className="text-3xl font-light leading-[1.1] tracking-[-0.03em] text-foreground sm:text-4xl md:text-5xl lg:text-[56px]">
-              Mas de dos decadas
+              Más de dos décadas
               <br />
               <span className="font-semibold">moviendo lo que importa</span>
             </h2>
           </div>
           <div className={`flex items-end transition-all duration-700 delay-200 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             <p className="text-[15px] leading-relaxed text-muted-foreground sm:text-base lg:max-w-md lg:text-lg">
-              Desde nuestros inicios, Transpesantez se ha dedicado al
-              transporte de alimentos — tanto refrigerado como en seco —
-              convirtiendose en un referente del sector a nivel internacional.
+              Más de 20 años de trayectoria en el transporte. Hemos crecido
+              gracias al esfuerzo, la dedicación y la confianza de nuestros
+              clientes, manteniendo siempre la esencia de un trato cercano
+              y profesional.
             </p>
           </div>
         </div>
@@ -81,7 +82,7 @@ export function About() {
         <div className={`mt-14 relative aspect-[16/9] sm:mt-20 sm:aspect-[21/9] overflow-hidden rounded-2xl transition-all duration-700 delay-300 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/warehouse.jpg`}
-            alt="Interior de almacen frigorifico de Transpesantez"
+            alt="Interior de almacén frigorífico de Transpesantez"
             fill
             className="object-cover transition-transform duration-[3000ms] hover:scale-105"
           />

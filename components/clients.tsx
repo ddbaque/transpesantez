@@ -14,10 +14,10 @@ const clients = [
 ]
 
 const stats = [
-  { value: "+500", label: "Entregas diarias" },
-  { value: "+50", label: "Vehiculos en flota" },
-  { value: "+20", label: "Anos de experiencia" },
-  { value: "100%", label: "Satisfaccion" },
+  { value: "+100", label: "Entregas diarias" },
+  { value: "+20", label: "Vehículos en flota" },
+  { value: "+20", label: "Años de experiencia" },
+  { value: "10", label: "Rutas fijas diarias" },
 ]
 
 function AnimatedStat({ value, label, delay, inView }: { value: string; label: string; delay: number; inView: boolean }) {
@@ -78,7 +78,7 @@ export function Clients() {
               <span className="text-[11px] uppercase tracking-[0.2em]">Nuestros clientes</span>
             </div>
             <h2 className="text-3xl font-light leading-[1.1] tracking-[-0.03em] text-foreground sm:text-4xl md:text-5xl lg:text-[56px]">
-              Marcas que confian
+              Marcas que confían
               <br />
               <span className="font-semibold">en nosotros</span>
             </h2>
@@ -86,7 +86,7 @@ export function Clients() {
           <div className="flex items-end">
             <p className="text-[15px] leading-relaxed text-muted-foreground sm:text-base lg:max-w-md lg:text-lg">
               Trabajamos con los principales supermercados y distribuidores
-              alimentarios, garantizando siempre la maxima calidad en cada
+              alimentarios, garantizando siempre la máxima calidad en cada
               entrega.
             </p>
           </div>

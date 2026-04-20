@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from "react"
 import {
   Snowflake,
-  Package,
   PackageCheck,
-  Route,
-  BarChart3,
-  Warehouse,
   Truck,
+  MapPinned,
+  Warehouse,
+  Sparkles,
+  Zap,
 } from "lucide-react"
 
 const services = [
@@ -16,49 +16,49 @@ const services = [
     icon: Snowflake,
     title: "Transporte Refrigerado",
     description:
-      "Vehiculos con control de temperatura de -25C a +25C para productos que requieren cadena de frio.",
+      "Vehículos frigoríficos con control de temperatura negativa y positiva para productos que requieren cadena de frío.",
     tag: "Principal",
   },
   {
-    icon: Package,
-    title: "Transporte en Seco",
-    description:
-      "Distribucion de productos alimentarios que no requieren temperatura controlada con la misma fiabilidad.",
-    tag: null,
-  },
-  {
     icon: PackageCheck,
-    title: "Distribucion Capilar",
+    title: "Entregas y Recogidas Paletizadas",
     description:
-      "Entregas punto a punto en supermercados, tiendas y centros de distribucion.",
+      "Movemos cualquier tipo de producto paletizado, con recogida y entrega punto a punto.",
     tag: null,
   },
   {
-    icon: Route,
-    title: "Rutas Optimizadas",
+    icon: Truck,
+    title: "Mercancía Pesada o Voluminosa",
     description:
-      "Planificacion inteligente de rutas para maximizar la eficiencia y reducir tiempos.",
+      "Flota adaptada para cargas de gran tonelaje y dimensiones, hasta 24.000 kg por tráiler.",
     tag: null,
   },
   {
-    icon: BarChart3,
-    title: "Trazabilidad Completa",
+    icon: MapPinned,
+    title: "Transporte Intercomunitario",
     description:
-      "Seguimiento GPS en tiempo real y registro de temperatura de cada envio.",
-    tag: "Tecnologia",
+      "Rutas entre comunidades autónomas con cobertura nacional y tiempos de entrega optimizados.",
+    tag: null,
   },
   {
     icon: Warehouse,
     title: "Almacenaje Temporal",
     description:
-      "Instalaciones de almacenamiento refrigerado y en seco de corta y media duracion.",
+      "Instalaciones para almacenamiento de corta y media duración mientras planificamos tu ruta.",
     tag: null,
   },
   {
-    icon: Truck,
-    title: "Flota Especializada",
+    icon: Sparkles,
+    title: "Soluciones a Medida",
     description:
-      "Vehiculos de distintas capacidades adaptados a cada necesidad logistica.",
+      "Estudiamos cada proyecto para ofrecer la solución logística que mejor encaje con tu operativa.",
+    tag: "Empresas",
+  },
+  {
+    icon: Zap,
+    title: "Servicios Urgentes y Exprés",
+    description:
+      "Cuando el tiempo aprieta, priorizamos tu envío con disponibilidad inmediata y ruta directa.",
     tag: null,
   },
 ]
@@ -92,9 +92,9 @@ export function Services() {
             <span className="text-[11px] uppercase tracking-[0.2em] text-white/40">Nuestros servicios</span>
           </div>
           <h2 className="text-3xl font-light leading-[1.1] tracking-[-0.03em] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
-            Soluciones completas en
+            Soluciones completas
             <br />
-            <span className="font-semibold">logistica alimentaria</span>
+            <span className="font-semibold">en transporte y logística</span>
           </h2>
         </div>
 

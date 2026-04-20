@@ -16,8 +16,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Transpesantez | Transporte de Alimentos de Confianza',
-  description: 'Transpesantez - Empresa lider en transporte refrigerado de alimentos. Cadena de frio garantizada para los principales supermercados de Espana.',
+  title: 'Transpesantez | Llegamos donde nadie llega',
+  description: 'Más de 20 años en el sector del transporte. Refrigerado, paletizado, mercancía pesada y servicios urgentes con total disponibilidad en Barcelona y toda España.',
   generator: 'v0.app',
   icons: {
     icon: [

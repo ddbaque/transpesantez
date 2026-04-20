@@ -5,32 +5,32 @@ import { Quote } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Carlos Fernandez",
-    role: "Director de Logistica",
+    name: "Carlos Fernández",
+    role: "Director de Logística",
     company: "Mercadona",
     content:
       "Transpesantez ha sido un socio fundamental para nuestra cadena de suministro. Su fiabilidad y el control de temperatura que mantienen es excepcional.",
   },
   {
-    name: "Maria Lopez",
+    name: "María López",
     role: "Responsable de Compras",
     company: "Caprabo",
     content:
-      "Llevamos mas de 10 anos trabajando con Transpesantez y la experiencia ha sido siempre impecable. Su equipo es profesional, puntual y muy comprometido.",
+      "Llevamos más de 10 años trabajando con Transpesantez y la experiencia ha sido siempre impecable. Su equipo es profesional, puntual y muy comprometido.",
   },
   {
-    name: "Javier Martinez",
+    name: "Javier Martínez",
     role: "Gerente de Operaciones",
     company: "Lidl",
     content:
-      "La trazabilidad en tiempo real que ofrecen nos da una tranquilidad total. Sabemos exactamente donde esta cada envio y a que temperatura.",
+      "La trazabilidad en tiempo real que ofrecen nos da una tranquilidad total. Sabemos exactamente dónde está cada envío y a qué temperatura.",
   },
   {
-    name: "Ana Garcia",
+    name: "Ana García",
     role: "Directora de Calidad",
     company: "Carrefour",
     content:
-      "Su compromiso con la seguridad alimentaria esta a la altura de nuestras exigencias mas estrictas. Transpesantez es sinonimo de confianza.",
+      "Su compromiso con la seguridad alimentaria está a la altura de nuestras exigencias más estrictas. Transpesantez es sinónimo de confianza.",
   },
 ]
 

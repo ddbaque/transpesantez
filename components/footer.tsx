@@ -15,16 +15,17 @@ const footerLinks = [
     title: "Servicios",
     links: [
       { label: "Transporte Refrigerado", href: "#servicios" },
-      { label: "Distribucion Capilar", href: "#servicios" },
+      { label: "Paletizados", href: "#servicios" },
+      { label: "Mercancía Pesada", href: "#servicios" },
       { label: "Almacenaje", href: "#servicios" },
-      { label: "Trazabilidad", href: "#servicios" },
     ],
   },
   {
     title: "Contacto",
     links: [
-      { label: "+593 99 123 4567", href: "tel:+593991234567" },
-      { label: "info@transpesantez.com", href: "mailto:info@transpesantez.com" },
+      { label: "938 437 200", href: "tel:+34938437200" },
+      { label: "647 94 27 60", href: "tel:+34647942760" },
+      { label: "trafico@ttranspesantez.com", href: "mailto:trafico@ttranspesantez.com" },
       { label: "Llica de Vall, Barcelona", href: "#contacto" },
     ],
   },
@@ -54,10 +55,10 @@ export function Footer() {
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h3 className="text-2xl font-light tracking-[-0.02em] text-white sm:text-3xl lg:text-4xl">
-                Listo para <span className="font-semibold">empezar?</span>
+                ¿Listo para <span className="font-semibold">empezar?</span>
               </h3>
               <p className="mt-3 text-sm text-white/40 max-w-lg lg:text-base">
-                Contactanos hoy y descubre como podemos optimizar tu cadena de suministro alimentario.
+                Contáctanos hoy y descubre cómo podemos adaptarnos a tus necesidades logísticas.
               </p>
             </div>
             <Link
@@ -83,22 +84,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/40">
-              Mas de 20 anos transportando alimentos con la maxima seguridad y
-              confianza. Tu cadena de frio, nuestra responsabilidad.
+              Más de 20 años de trayectoria en el transporte, con total
+              disponibilidad, rapidez y trato cercano. Llegamos donde nadie llega.
             </p>
-            {/* Social */}
-            <div className="mt-6 flex flex-wrap gap-2">
-              {["Facebook", "Instagram", "LinkedIn", "X"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="px-3.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-xs text-white/40 transition-all hover:bg-white/[0.08] hover:text-white/60"
-                  aria-label={`Transpesantez en ${social}`}
-                >
-                  {social}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Links */}
@@ -132,7 +120,7 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-xs text-white/25 transition-colors hover:text-white/50">
-              Politica de Privacidad
+              Política de Privacidad
             </Link>
             <Link href="#" className="text-xs text-white/25 transition-colors hover:text-white/50">
               Aviso Legal

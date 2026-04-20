@@ -13,8 +13,8 @@ function AnimatedCounter({ value }: { value: string }) {
 }
 
 const stats = [
-  { icon: ShieldCheck, value: "100%", label: "Seguridad alimentaria" },
-  { icon: Thermometer, value: "-25/+25C", label: "Control temperatura" },
+  { icon: ShieldCheck, value: "+20", label: "Años de experiencia" },
+  { icon: Thermometer, value: "Neg/Pos", label: "Control temperatura" },
   { icon: Clock, value: "24/7", label: "Disponibilidad total" },
 ]
 
@@ -36,7 +36,7 @@ export function Hero() {
           <Image
             key={src}
             src={src}
-            alt="Camion de transporte alimentario Transpesantez"
+            alt="Camión de transporte Transpesantez"
             fill
             className={`object-cover transition-opacity duration-[2500ms] ease-in-out ${
               i === activeIndex ? "opacity-100 scale-105" : "opacity-0 scale-100"
@@ -57,23 +57,24 @@ export function Hero() {
           <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[11px] uppercase tracking-[0.2em] text-white/60">
-              Transporte alimentario de confianza
+              Transporte de confianza desde hace +20 años
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="animate-fade-in-up stagger-1 text-balance text-4xl font-light leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-[72px]">
-            Tu cadena de frio,
+            Llegamos donde
             <br />
             <span className="font-semibold bg-gradient-to-r from-white via-white to-blue-200 bg-clip-text text-transparent">
-              nuestra responsabilidad
+              nadie llega
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="animate-fade-in-up stagger-2 mt-6 max-w-xl text-[15px] leading-relaxed text-white/50 sm:mt-8 sm:text-base lg:text-lg">
-            Mas de 20 anos garantizando la seguridad alimentaria en
-            transporte refrigerado y seco para los principales supermercados.
+            Más de 20 años transportando mercancía con total disponibilidad,
+            rapidez y capacidad resolutiva, adaptándonos a las necesidades
+            de cada cliente.
           </p>
 
           {/* CTAs */}
@@ -90,7 +91,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 text-[13px] text-white/50 transition-colors hover:text-white/80 self-start sm:self-center"
             >
               <span className="h-px w-8 bg-white/20 transition-all group-hover:w-12" />
-              Conocer mas
+              Conocer más
             </Link>
           </div>
         </div>
