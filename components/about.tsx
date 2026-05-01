@@ -78,7 +78,7 @@ export function About() {
   const { ref: sectionRef, inView } = useInView(0.15)
 
   return (
-    <section id="nosotros" className="py-24 sm:py-32 lg:py-44 bg-secondary/40">
+    <section id="nosotros" className="py-20 sm:py-24 lg:py-32 bg-secondary/40">
       <div ref={sectionRef} className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid items-end gap-12 lg:grid-cols-2 lg:gap-20">
           <div
@@ -122,43 +122,43 @@ export function About() {
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white p-3" style={{ boxShadow: "var(--shadow-card)" }}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/10]">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/camion-1.jpeg`}
-                  alt="Camión de Transpesantez"
-                  fill
-                  className="object-cover transition-transform duration-[3000ms] hover:scale-105"
-                />
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl sm:aspect-[16/10]">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/camion-1.jpeg`}
+                alt="Camión de Transpesantez"
+                fill
+                className="object-cover transition-transform duration-[3000ms] hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 to-transparent" />
             </div>
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+            <div className="mt-7 divide-y divide-border/70 border-y border-border/70">
               {principles.map((principle, i) => (
                 <div
                   key={principle.title}
-                  className={`min-h-[184px] rounded-xl bg-white p-5 transition-all duration-500 ${
+                  className={`flex gap-4 py-5 transition-all duration-500 ${
                     inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                   }`}
                   style={{
-                    boxShadow: "var(--shadow-card)",
                     transitionDelay: inView ? `${350 + i * 100}ms` : "0ms",
                   }}
                 >
-                  <principle.icon className="h-5 w-5 text-accent/70" />
-                  <h3 className="mt-4 text-sm font-semibold tracking-[-0.01em] text-foreground">
-                    {principle.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {principle.description}
-                  </p>
+                  <principle.icon className="mt-0.5 h-5 w-5 shrink-0 text-accent/70" />
+                  <div>
+                    <h3 className="text-sm font-semibold tracking-[-0.01em] text-foreground">
+                      {principle.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {principle.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-16 sm:mt-24">
+        <div className="mt-12 sm:mt-16">
           <div className="relative lg:hidden">
             <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-border" />
             <div className="space-y-6">
@@ -176,7 +176,7 @@ export function About() {
                     }}
                   >
                     {!isRight && (
-                      <article className="relative h-full rounded-2xl border border-border/70 bg-white p-4 shadow-[var(--shadow-card)] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-accent/20 hover:shadow-[var(--shadow-card-hover)] sm:p-5">
+                      <article className="relative h-full py-3 pr-2 text-right transition-transform duration-300 ease-out hover:-translate-y-0.5 sm:pr-4">
                         <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-accent sm:text-xs">
                           {milestone.year}
                         </span>
@@ -194,7 +194,7 @@ export function About() {
                     </div>
 
                     {isRight && (
-                      <article className="col-start-3 relative h-full rounded-2xl border border-border/70 bg-white p-4 shadow-[var(--shadow-card)] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-accent/20 hover:shadow-[var(--shadow-card-hover)] sm:p-5">
+                      <article className="col-start-3 relative h-full py-3 pl-2 transition-transform duration-300 ease-out hover:-translate-y-0.5 sm:pl-4">
                         <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-accent sm:text-xs">
                           {milestone.year}
                         </span>
@@ -212,32 +212,36 @@ export function About() {
             </div>
           </div>
 
-          <div className="hidden gap-4 lg:grid lg:grid-cols-5">
-            {milestones.map((milestone, i) => (
-              <div
-                key={`${milestone.year}-${milestone.title}`}
-                className={`transition-all duration-500 ${
-                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{
-                  transitionDelay: inView ? `${500 + i * 100}ms` : "0ms",
-                }}
-              >
-                <article className="relative h-full overflow-hidden rounded-2xl border border-border/70 bg-white p-6 shadow-[var(--shadow-card)] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-accent/20 hover:shadow-[var(--shadow-card-hover)]">
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
-                      {milestone.year}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-base font-semibold tracking-[-0.01em] text-foreground">
-                    {milestone.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {milestone.description}
-                  </p>
-                </article>
-              </div>
-            ))}
+          <div className="relative hidden lg:block">
+            <div className="absolute left-0 right-0 top-3 h-px bg-border" />
+            <div className="grid gap-8 lg:grid-cols-5">
+              {milestones.map((milestone, i) => (
+                <div
+                  key={`${milestone.year}-${milestone.title}`}
+                  className={`transition-all duration-500 ${
+                    inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{
+                    transitionDelay: inView ? `${500 + i * 100}ms` : "0ms",
+                  }}
+                >
+                  <article className="relative h-full pt-10 transition-transform duration-300 ease-out hover:-translate-y-1">
+                    <span className="absolute top-[7px] h-3 w-3 rounded-full border-2 border-secondary bg-accent" />
+                    <div className="flex items-center gap-4">
+                      <span className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
+                        {milestone.year}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-base font-semibold tracking-[-0.01em] text-foreground">
+                      {milestone.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {milestone.description}
+                    </p>
+                  </article>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

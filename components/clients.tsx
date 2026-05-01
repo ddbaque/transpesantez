@@ -68,7 +68,7 @@ export function Clients() {
   }, [])
 
   return (
-    <section id="clientes" className="py-24 sm:py-32 lg:py-44">
+    <section id="clientes" className="py-20 sm:py-24 lg:py-32">
       <div ref={ref} className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Header */}
         <div className={`grid gap-6 lg:grid-cols-2 lg:gap-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -93,7 +93,7 @@ export function Clients() {
         </div>
 
         {/* Marquee of client names */}
-        <div className={`mt-14 sm:mt-20 relative overflow-hidden transition-all duration-700 delay-200 ${inView ? "opacity-100" : "opacity-0"}`}>
+        <div className={`mt-10 sm:mt-14 relative overflow-hidden transition-all duration-700 delay-200 ${inView ? "opacity-100" : "opacity-0"}`}>
           <div className="flex items-center py-10 border-y border-border">
             <div className="animate-marquee flex items-center gap-16 shrink-0 pr-16">
               {[...clients, ...clients].map((client, i) => (
@@ -122,7 +122,7 @@ export function Clients() {
         </div>
 
         {/* Stats */}
-        <div className="mt-14 grid grid-cols-2 gap-8 sm:mt-20 lg:grid-cols-4 lg:gap-12">
+        <div className="mt-10 grid grid-cols-2 gap-8 sm:mt-14 lg:grid-cols-4 lg:gap-12">
           {stats.map((stat, i) => (
             <AnimatedStat
               key={stat.label}

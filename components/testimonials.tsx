@@ -48,7 +48,7 @@ export function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonios" className="py-24 sm:py-32 lg:py-44 bg-secondary/50">
+    <section id="testimonios" className="py-20 sm:py-24 lg:py-32 bg-secondary/50">
       <div ref={ref} className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Header */}
         <div className={`max-w-2xl transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -64,7 +64,7 @@ export function Testimonials() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="mt-14 grid gap-5 sm:mt-20 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:mt-14 md:grid-cols-2">
           {testimonials.map((testimonial, i) => (
             <div
               key={testimonial.name}

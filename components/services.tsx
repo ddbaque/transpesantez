@@ -77,7 +77,7 @@ export function Services() {
   }, [])
 
   return (
-    <section id="servicios" className="relative py-24 sm:py-32 lg:py-44 bg-[#0a1628] overflow-hidden">
+    <section id="servicios" className="relative py-20 sm:py-24 lg:py-32 bg-[#0a1628] overflow-hidden">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
@@ -99,7 +99,7 @@ export function Services() {
         </div>
 
         {/* Services grid - 2 columns on desktop */}
-        <div className="mt-14 sm:mt-20 grid gap-4 md:grid-cols-2">
+        <div className="mt-10 sm:mt-14 grid gap-4 md:grid-cols-2">
           {services.map((service, i) => (
             <div
               key={service.title}

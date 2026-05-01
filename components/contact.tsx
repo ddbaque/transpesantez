@@ -91,7 +91,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="py-24 sm:py-32 lg:py-44">
+    <section id="contacto" className="py-20 sm:py-24 lg:py-32">
       <div ref={ref} className="mx-auto max-w-7xl px-6 sm:px-8">
         {/* Header */}
         <div className={`max-w-2xl transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -106,7 +106,7 @@ export function Contact() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-14 sm:mt-20 lg:grid-cols-5 lg:gap-20">
+        <div className="mt-10 grid gap-10 sm:mt-14 lg:grid-cols-5 lg:gap-16">
           {/* Contact info */}
           <div className={`lg:col-span-2 order-2 lg:order-1 transition-all duration-700 delay-200 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             <div className="space-y-6 sm:space-y-8">
