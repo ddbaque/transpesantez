@@ -5,10 +5,10 @@ import Link from "next/link"
 import { X, ArrowRight } from "lucide-react"
 
 const navLinks = [
-  { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
   { label: "Clientes", href: "#clientes" },
   { label: "Testimonios", href: "#testimonios" },
+  { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ]
 

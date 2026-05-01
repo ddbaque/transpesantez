@@ -5,10 +5,10 @@ const footerLinks = [
   {
     title: "Empresa",
     links: [
-      { label: "Sobre nosotros", href: "#nosotros" },
       { label: "Servicios", href: "#servicios" },
       { label: "Clientes", href: "#clientes" },
       { label: "Testimonios", href: "#testimonios" },
+      { label: "Sobre nosotros", href: "#nosotros" },
     ],
   },
   {
